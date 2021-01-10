@@ -6,6 +6,7 @@ const Body = Matter.Body;
 
 var paper
 var ground
+var box
 function preload()
 {
 	
@@ -20,8 +21,11 @@ function setup() {
 
 	//Create the Bodies Here.
 	paper = new Paper(150,200,20)
-	ground = new Ground(200,200,1200,50)
-
+	ground = new Ground(width/2,390,width,20)
+	box = new Box(900,370,200,20)
+	box2 = new Box(1010,335,20,90)
+	box3 = new Box(810,335,20,90)
+	
 	Engine.run(engine);
  
 }
@@ -30,11 +34,17 @@ function setup() {
 function draw() {
   rectMode(CENTER);
   background(0);
-  console.log(paper.body.position.y)
-  drawSprites();
  paper.display()
+ box.display()
+ box2.display()
+ box3.display()
  ground.display()
+ 
 }
-
+function keyPressed(){
+	if(keyCode === UP_ARROW){
+		Matter.Body.applyForce(paper.body,paper.body.position,{x:85,y:-85});
+	}
+}
 
 
