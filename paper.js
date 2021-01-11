@@ -4,7 +4,7 @@ class Paper{
             isStatic:false,
             restitution:0.3,
             friction:0.5,
-            density:1.2
+            density:5.5
         }
         this.radius = radius
         this.x=x
